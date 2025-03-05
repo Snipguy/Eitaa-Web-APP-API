@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC # type: ignore
 from selenium.common.exceptions import NoSuchElementException # type: ignore
 
 
-def main():
+def login():
     options = webdriver.ChromeOptions()
     options.add_argument(r"user-data-dir=C:\Selenium")
     options.add_argument("profile-directory=Default")
@@ -64,4 +64,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    login()
