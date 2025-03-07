@@ -54,12 +54,6 @@ def login():
 
     sleep(60)
 
-
-
-    # # Save cookies to a file
-    # with open('cookies.pkl', 'wb') as file:
-    #     pickle.dump(driver.get_cookies(), file)
-
     driver.quit()
 
 

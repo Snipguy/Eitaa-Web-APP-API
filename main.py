@@ -7,10 +7,13 @@ from selenium.webdriver.support.ui import WebDriverWait # type: ignore
 from login import login
 from selenium.webdriver.common.keys import Keys # type: ignore
 from persiantools.jdatetime import JalaliDate
-import pyautogui, pyperclip
+# import pyautogui, pyperclip
 
 def verifyLogin():
-    login()
+    if login == True:
+        return 0
+    else:
+        login()
 
 def main():
     options = webdriver.ChromeOptions()
@@ -21,9 +24,9 @@ def main():
     driver = webdriver.Chrome(options=options)
 
 
-    # driver.execute_script("window.open('https://web.eitaa.com', '_blank');")  # Open new tab
-    # driver.switch_to.window(driver.window_handles[1])  # Switch to the new tab
     driver.get("https://web.eitaa.com")
+
+    # verifyLogin()
 
     # with open('cookies.pkl', 'rb') as file:
     #     cookies = pickle.load(file)
@@ -33,7 +36,6 @@ def main():
     # driver.refresh()
     sleep(10)
 
-    # verifyLogin()
 
     # Locate the element with the specific data-peer-id
     try:
