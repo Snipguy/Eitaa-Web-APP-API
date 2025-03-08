@@ -52,32 +52,34 @@ def main():
     )
     driver.execute_script("arguments[0].scrollIntoView();", message_box)
     message_box.click()
-    sleep(5)
+    sleep(5000)
 
     # //*[@id="column-center"]/div/div/div[4]/div[1]/div[1]/div[7]/input
-    path_to_file = r'D:\babak\In progress\Babak\DEV\Projects\Web scraping\Eitaa-Web-APP-API\.gitignore' 
-    # path_to_file = r'E:\GitHub\Eita-Web-APP-API\.gitignore' path for home laptop
+    # path_to_file = r'D:\babak\In progress\Babak\DEV\Projects\Web scraping\Eitaa-Web-APP-API\.gitignore' 
+    path_to_file = r'E:\GitHub\Eita-Web-APP-API\.gitignore' # path for home laptop
 
 
     try:
         file_input = WebDriverWait(driver, 20).until(
-            lambda d: d.find_element(By.XPATH, '//*[@id="column-center"]/div/div/div[4]/div[1]/div[1]/div[7]/input'))
+            lambda d: d.find_element(By.XPATH, '//*[@id="column-center"]/div/div/div[4]/div[1]/div[1]/div[7]/input')
+        )
         # driver.execute_script("arguments[0].style.display = 'block';", file_input)
         print(file_input.is_displayed(), file_input.is_enabled())
 
         subprocess.run(f'explorer /select,"{path_to_file}"', shell=True)
         sleep(2)
-        pyautogui.hotkey("ctrl", "c")
+        pyperclip.copy()
+        # pyautogui.hotkey("ctrl", "c")
         print("File copied to clipboard.")
         sleep(1.5)
 
-        print("Trying to send the file.....")        
+        print("Trying to send the file.....")
         action = ActionChains(driver)
         action.key_down(Keys.CONTROL).send_keys('v').key_up(Keys.CONTROL).perform()
         print("Sending the file is Done;)")
     except Exception as e:
         print(e)
-    
+
     print("------------")
     print('pasted \n')
 
