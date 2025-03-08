@@ -52,7 +52,7 @@ def main():
     )
     driver.execute_script("arguments[0].scrollIntoView();", message_box)
     message_box.click()
-    sleep(5000)
+    sleep(5)
 
     # //*[@id="column-center"]/div/div/div[4]/div[1]/div[1]/div[7]/input
     # path_to_file = r'D:\babak\In progress\Babak\DEV\Projects\Web scraping\Eitaa-Web-APP-API\.gitignore' 
